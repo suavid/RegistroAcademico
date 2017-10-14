@@ -1,0 +1,153 @@
+﻿<script>
+    $(function () {
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $("#FechaNacimiento").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+        $("#FechaNacimientoE").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+  } );
+</script>
+<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Docentes
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button-primary" ng-click="vm.ShowPopupNew();"> Nuevo +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Correo electrónico</th>
+                <th>Número de teléfono</th>
+                <th>Número de teléfono secundario</th>
+                <th>Dirección</th>
+                <th>Filial</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="docente in vm.Docentes">
+                <td>{{docente.PrimerNombre}} {{docente.SegundoNombre}} {{docente.PrimerApellido}} {{docente.SegundoApellido}}</td>
+                <td>{{docente.FechaNacimiento}}</td>
+                <td>{{docente.CorreoElectronico}}</td>
+                <td>{{docente.NumeroTelefono}}</td>
+                <td>{{docente.NumeroTelefonoSecundario}}</td>
+                <td>{{docente.Direccion}}</td>
+                <td>{{docente.Filial}}</td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.ShowPopupEdit('docente',docente);">create</i></td>
+                <td style="cursor:pointer;padding-right:10px;"><i class="material-icons" ng-click="vm.DeleteItem('docente',docente);">remove</i></td>
+                <td><span ng-if="!docente.TieneUsuario"><a href="javascript: void(0);" ng-click="vm.ShowPopupUser(docente)">Crear usuario</a></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Nuevo registro</h5>
+    <div>
+        <form>
+            <label for="PrimerNombre">Primer nombre *</label>
+            <input class="u-full-width" placeholder="Juan" id="PrimerNombre" ng-model="vm.Docente.PrimerNombre" type="text">
+            <label for="SegundoNombre">Segundo nombre</label>
+            <input class="u-full-width" placeholder="José" id="SegundoNombre" ng-model="vm.Docente.SegundoNombre" type="text">
+            <label for="PrimerApellido">Primer apellido *</label>
+            <input class="u-full-width" placeholder="Pérez" id="PrimerApellido" type="text" ng-model="vm.Docente.PrimerApellido">
+            <label for="SegundoApellido">Segundo apellido</label>
+            <input class="u-full-width" placeholder="Molina" id="SegundoApellido" type="text" ng-model="vm.Docente.SegundoApellido">
+
+            <label for="FechaNacimiento">Fecha de nacimiento *</label>
+            <input class="u-full-width" placeholder="1990/01/01" id="FechaNacimiento" type="text" ng-model="vm.Docente.FechaNacimiento" readonly>
+            <label for="CorreoElectronico">Correo electrónico *</label>
+            <input class="u-full-width" placeholder="jjperez@gmail.com" id="CorreoElectronico" type="text" ng-model="vm.Docente.CorreoElectronico">
+            <label for="Telefono">Numero teléfono *</label>
+            <input class="u-full-width" placeholder="2255-1100" id="NumeroTelefono" onkeyup="mascara(this, '-', patron_telefono, true)" type="text" ng-model="vm.Docente.NumeroTelefono">
+            <label for="NumeroTelefonoSecundario">Numero teléfono secundario</label>
+            <input class="u-full-width" placeholder="7789-1100" id="NumeroTelefonoSecundario" onkeyup="mascara(this, '-', patron_telefono, true)" type="text" ng-model="vm.Docente.NumeroTelefonoSecundario">
+            <label for="Direccion">Dirección *</label>
+            <input class="u-full-width" placeholder="San Salvador" id="Direccion" type="text" ng-model="vm.Docente.Direccion">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('docente', 'new');" class="button-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar registro</h5>
+    <div>
+        <form>
+            <label for="PrimerNombreE">Primer nombre *</label>
+            <input class="u-full-width" placeholder="Juan" id="PrimerNombreE" ng-model="vm.Docente.PrimerNombre" type="text">
+            <label for="SegundoNombreE">Segundo nombre</label>
+            <input class="u-full-width" placeholder="José" id="SegundoNombreE" ng-model="vm.Docente.SegundoNombre" type="text">
+            <label for="PrimerApellidoE">Primer apellido *</label>
+            <input class="u-full-width" placeholder="Pérez" id="PrimerApellidoE" type="text" ng-model="vm.Docente.PrimerApellido">
+            <label for="SegundoApellidoE">Segundo apellido</label>
+            <input class="u-full-width" placeholder="Molina" id="SegundoApellidoE" type="text" ng-model="vm.Docente.SegundoApellido">
+
+            <label for="FechaNacimientoE">Fecha de nacimiento *</label>
+            <input class="u-full-width" placeholder="1990/01/01" id="FechaNacimientoE" type="text" ng-model="vm.Docente.FechaNacimiento" readonly>
+            <label for="CorreoElectronicoE">Correo electrónico *</label>
+            <input class="u-full-width" placeholder="jjperez@gmail.com" id="CorreoElectronicoE" type="text" ng-model="vm.Docente.CorreoElectronico">
+            <label for="NumeroTelefonoE">Numero teléfono *</label>
+            <input class="u-full-width" placeholder="2255-1100" id="NumeroTelefonoE" onkeyup="mascara(this, '-', patron_telefono, true)" type="text" ng-model="vm.Docente.NumeroTelefono">
+            <label for="NumeroTelefonoSecundarioE">Numero teléfono secundario</label>
+            <input class="u-full-width" placeholder="7789-1100" id="NumeroTelefonoSecundarioE" onkeyup="mascara(this, '-', patron_telefono, true)" type="text" ng-model="vm.Docente.NumeroTelefonoSecundario">
+            <label for="DireccionE">Dirección *</label>
+            <input class="u-full-width" placeholder="San Salvador" id="DireccionE" type="text" ng-model="vm.Docente.Direccion">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('docente', 'update');" class="button-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupUser == 1">
+    <h5>Crear usuario</h5>
+    <div>
+        <form>
+            <label for="IdDocenteU">IdDocente</label>
+            <input class="u-full-width" id="IdDocenteU" ng-model="vm.DatosUsuario.IdDatos" type="text" disabled>
+            <label for="NombreUsuarioU">Nombre de usuario</label>
+            <input class="u-full-width" id="NombreUsuarioU" ng-model="vm.DatosUsuario.NombreUsuario" type="text">
+        </form>
+        <div style="text-align: right;">
+            <br />
+            <button ng-click="vm.HidePopupUser();">Cancelar</button>
+            <button ng-click="vm.CreateUser('docente');" class="button-primary">Guardar cambios</button>
+        </div>
+    </div>
+</div>

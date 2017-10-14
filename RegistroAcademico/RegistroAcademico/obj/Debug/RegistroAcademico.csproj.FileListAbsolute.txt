@@ -1,0 +1,8 @@
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.csprojResolveAssemblyReference.cache
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll.config
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.pdb
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\Microsoft.Web.XmlTransform.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\NuGet.Core.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.pdb

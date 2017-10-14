@@ -1,0 +1,95 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Reporte de notas
+            </p>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div ng-repeat="(key, value) in vm.ReporteNotas track by $index">
+        <div style="background-color: #0094ff; color: white; padding: 8px;">{{key}}</div>
+        <div ng-repeat="(key1, value1) in value track by $index">
+            <div style="background-color:#727272; color: white;padding: 3px 3px 3px 8px;">Período No.{{$index+1}} ({{vm.ObtenerPorcentajeDelPeriodo(key1,value1)*100;}}%)</div>
+            <div>
+                <table style="width: 100%;margin: 0px;">
+                    <thead>
+                        <tr>
+                            <th>Titulo de asignación</th>
+                            <th>Porcentaje</th>
+                            <th>Calificación</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="notas in value1 track by $index">
+                            <td>
+                                {{notas.TituloDeAsignacion}}
+                            </td>
+                            <td>
+                                {{notas.PorcentajeAsignacion*100}}%
+                            </td>
+                            <td>
+                                {{notas.Nota | number}}
+                            </td>
+                            <td>{{notas.PorcentajeAsignacion*notas.Nota}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resultado del periodo: </strong></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>{{vm.ProcesarResultadoDelPeriodo(key1,value1);}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="padding: 3px 3px 3px 8px;" ng-class="{'reprobado': (vm.ObtenerNotaFinal(key,value) < vm.ObtenerNotaMinima(key,value)),'aprobado': (vm.ObtenerNotaFinal(key,value)>=vm.ObtenerNotaMinima(key,value))}"><strong>Nota final: &nbsp;&nbsp;&nbsp;&nbsp;{{vm.ObtenerNotaFinal(key,value);}}</strong></div>
+        <br/><hr/><br />
+    </div>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Nuevo registro</h5>
+    <div>
+        <form>
+            <label for="Nombre">Nombre</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la filial" id="Nombre" type="text">
+            <label for="Razon">Razón social</label>
+            <input class="u-full-width" placeholder="Razón social" id="Razon" type="text">
+            <label for="Direccion">Dirección</label>
+            <input class="u-full-width" placeholder="Ej: San Salvador, Soyapango" id="Direccion" type="text">
+            <label for="Telefono">Teléfono</label>
+            <input class="u-full-width" placeholder="Ej: 2255-1100" id="Telefono" type="text">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save();" class="button-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar registro</h5>
+    <div>
+        <form>
+            <label for="Nombre">Nombre</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la filial" id="NombreE" type="text">
+            <label for="Razon">Razón social</label>
+            <input class="u-full-width" placeholder="Razón social" id="RazonE" type="text">
+            <label for="Direccion">Dirección</label>
+            <input class="u-full-width" placeholder="Ej: San Salvador, Soyapango" id="DireccionE" type="text">
+            <label for="Telefono">Teléfono</label>
+            <input class="u-full-width" placeholder="Ej: 2255-1100" id="TelefonoE" type="text">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupEdit();">Cancelar</button>
+                <button ng-click="vm.Update();" class="button-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>

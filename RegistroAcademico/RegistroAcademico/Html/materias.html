@@ -1,0 +1,74 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Asignatura
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button-primary" ng-click="vm.ShowPopupNew();"> Nuevo +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Nota mínima</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="asignatura in vm.Asignaturas">
+                <td>{{asignatura.Nombre}}</td>
+                <td>{{asignatura.Descripcion}}</td>
+                <td>{{asignatura.NotaMinimaDeAprobacion}}</td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.ShowPopupEdit('asignatura',asignatura);">create</i></td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.DeleteItem('asignatura',asignatura);">remove</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Nuevo registro</h5>
+    <div>
+        <form>
+            <label for="Nombre">Nombre de asignatura *</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la asignatura" id="Nombre" type="text" ng-model="vm.Asignatura.Nombre">
+            <label for="Descripcion">Descripcion</label>
+            <input class="u-full-width" placeholder="Descripcion" id="Descripcion" type="text" ng-model="vm.Asignatura.Descripcion">
+            <label for="NotaMinimaDeAprobacion">NotaMinimaDeAprobacion</label>
+            <input class="u-full-width" placeholder="Ejm: 7" id="NotaMinimaDeAprobacion" type="text" ng-model="vm.Asignatura.NotaMinimaDeAprobacion">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('asignatura', 'new');" class="button-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar registro</h5>
+    <div>
+        <form>
+            <label for="NombreE">Nombre de asignatura *</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la asignatura" id="NombreE" type="text" ng-model="vm.Asignatura.Nombre">
+            <label for="DescripcionE">Descripcion</label>
+            <input class="u-full-width" placeholder="Descripcion" id="DescripcionE" type="text" ng-model="vm.Asignatura.Descripcion">
+            <label for="NotaMinimaDeAprobacionE">NotaMinimaDeAprobacion</label>
+            <input class="u-full-width" placeholder="Ejm: 7" id="NotaMinimaDeAprobacionE" type="text" ng-model="vm.Asignatura.NotaMinimaDeAprobacion">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('asignatura', 'update');" class="button-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>

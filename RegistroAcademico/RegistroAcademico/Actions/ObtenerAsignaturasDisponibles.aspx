@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ObtenerAsignaturasDisponibles.aspx.cs" Inherits="RegistroAcademico.Actions.ObtenerAsignaturasDisponibles" %>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GuardarClase.aspx.cs" Inherits="RegistroAcademico.Actions.GuardarClase" %>

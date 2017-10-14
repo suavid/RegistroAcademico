@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="Content/Css/main.css" rel="stylesheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Panel principal</title>
+</head>
+<body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script type="text/javascript" src="Content/Js/main.js"></script>
+    <script type="text/javascript" src="Content/Js/sistema.js"></script>
+    <div id="container" ng-app="RegistroAcademico" ng-controller="SistemaController as vm" style="margin: 0px; padding: 0px;">
+        <div style="padding: 20px; background:  #0097a7; color: white; margin: 0px;"> 
+            <p class="h1" style="margin: 0px;"><i class="material-icons">settings</i> Panel administrativo</p>
+        </div>
+
+        <div style="box-shadow: #d3d3d3 2px 2px 2px; padding: 10px;">
+            <p style="text-align: right; margin-right: 20px;">
+                Inició sesión como: <strong>{{vm.Usuario.NombreUsuario}}</strong> |
+                <a href="">Administrar cuenta</a> |
+                <a href="">Cerrar sesión</a>
+            </p>
+        </div>
+        <div class="menu">
+            
+            <div ng-if="vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">place</i>
+                <br />
+                Filiales
+            </div>
+            <div ng-if="vm.Usuario.EsDocente == 1 || vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">group</i>
+                <br />
+                Alumnos
+            </div>
+            <div ng-if="vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">person</i>
+                <br />
+                Usuarios
+            </div>
+            <div ng-if="vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">assignment</i>
+                <br />
+                Materias
+            </div>
+            
+            <div ng-if="vm.Usuario.EsDocente == 1 || vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">schedule</i>
+                <br />
+                Períodos
+            </div>
+            <div ng-if="vm.Usuario.EsDocente == 1 || vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">edit</i>
+                <br />
+                Notas
+            </div>
+            <div>
+                <i class="material-icons" style="font-size: 60px;">school</i>
+                <br />
+                Reporte de notas
+            </div>
+            <div ng-if="vm.Usuario.EsAdministrador == 1">
+                <i class="material-icons" style="font-size: 60px;">account_box</i>
+                <br />
+                Docentes
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

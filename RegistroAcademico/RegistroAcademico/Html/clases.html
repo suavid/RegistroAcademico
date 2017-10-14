@@ -1,0 +1,144 @@
+﻿<script>
+    $(function () {
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $("#FechaInicio").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+        $("#FechaFin").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+        $("#FechaInicioE").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+        $("#FechaFinE").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+    });
+</script>
+<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Clases
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button-primary" ng-click="vm.ShowPopupNew();"> Nuevo +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Fecha/inicio</th>
+                <th>Fecha/fin</th>
+                <th>#Sesiones</th>
+                <th>Duración</th>
+                <th>Docente</th>
+                <th>Asignatura</th>
+                <th>Local</th>
+                <th>Horario</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="clase in vm.Clases">
+                <td>{{clase.FechaInicio}}</td>
+                <td>{{clase.FechaFin}}</td>
+                <td>{{clase.NumeroSesiones}}</td>
+                <td>{{clase.DuracionDeSesion}} h</td>
+                <td>{{clase.Docente}}</td>
+                <td>{{clase.Asignatura}}</td>
+                <td>{{clase.Local}}</td>
+                <td>{{clase.HorarioClase}}</td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.ShowPopupEdit('clase',clase);">create</i></td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.DeleteItem('clase',clase);">remove</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Nuevo registro</h5>
+    <div>
+        <form>
+            <label for="FechaInicio">Fecha de Inicio *</label>
+            <input class="u-full-width" id="FechaInicio" type="text" ng-model="vm.Clase.FechaInicio" readonly>
+            <label for="FechaFin">Fecha de finalización *</label>
+            <input class="u-full-width" id="FechaFin" type="text" ng-model="vm.Clase.FechaFin" readonly>
+            <label for="NumeroSesiones">Numero de sesiones *</label>
+            <input class="u-full-width" id="NumeroSesiones" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.Clase.NumeroSesiones">
+            <label for="DuracionDeSesion">Duración de sesión *</label>
+            <input class="u-full-width" id="DuracionDeSesion" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.Clase.DuracionDeSesion">
+            <label for="ImpartidaPor">Impartida por *</label>
+            <select class="u-full-width" ng-model="vm.Clase.ImpartidaPor">
+                <option ng-repeat="docente in vm.Docentes" value="{{docente.IdDocente}}">{{docente.PrimerNombre}} {{docente.PrimerApellido}}</option>
+            </select>
+            <label for="AsignaturaImpartida">Asignatura *</label>
+            <select class="u-full-width" ng-model="vm.Clase.AsignaturaImpartida">
+                <option ng-repeat="asignatura in vm.Asignaturas" value="{{asignatura.IdAsignatura}}">{{asignatura.Nombre}}</option>
+            </select>
+            <label for="Horario">Horario *</label>
+            <select class="u-full-width" ng-model="vm.Clase.Horario">
+                <option ng-repeat="horario in vm.Horarios" value="{{horario.IdHorario}}" ng-if="horario.IdHorario != 0">{{horario.Desc}}, {{horario.Detalle}}</option>
+            </select>
+            <label for="Local">Local</label>
+            <input class="u-full-width" id="Local" type="text" ng-model="vm.Clase.Local">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('clase', 'new');" class="button-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar registro</h5>
+    <div>
+        <form>
+            <label for="FechaInicioE">Fecha de Inicio *</label>
+            <input class="u-full-width" id="FechaInicioE" type="text" ng-model="vm.Clase.FechaInicio" readonly>
+            <label for="FechaFinE">Fecha de finalización *</label>
+            <input class="u-full-width" id="FechaFinE" type="text" ng-model="vm.Clase.FechaFin" readonly>
+            <label for="NumeroSesionesE">Numero de sesiones *</label>
+            <input class="u-full-width" id="NumeroSesionesE" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.Clase.NumeroSesiones">
+            <label for="DuracionDeSesionE">Duración de sesión *</label>
+            <input class="u-full-width" id="DuracionDeSesionE" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.Clase.DuracionDeSesion">
+            <label for="ImpartidaPorE">Impartida por *</label>
+            <select class="u-full-width" ng-model="vm.Clase.ImpartidaPor">
+                <option ng-repeat="docente in vm.Docentes" value="{{docente.IdDocente}}">{{docente.PrimerNombre}} {{docente.PrimerApellido}}</option>
+            </select>
+            <label for="AsignaturaImpartidaE">Asignatura *</label>
+            <select class="u-full-width" ng-model="vm.Clase.AsignaturaImpartida">
+                <option ng-repeat="asignatura in vm.Asignaturas" value="{{asignatura.IdAsignatura}}">{{asignatura.Nombre}}</option>
+            </select>
+            <label for="Horario">Horario *</label>
+            <select class="u-full-width" ng-model="vm.Clase.Horario">
+                <option ng-repeat="horario in vm.Horarios" value="{{horario.IdHorario}}" ng-if="horario.IdHorario != 0">{{horario.Desc}}, {{horario.Detalle}}</option>
+            </select>
+            <label for="LocalE">Local</label>
+            <input class="u-full-width" id="LocalE" type="text" ng-model="vm.Clase.Local">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupEdit();">Cancelar</button>
+                <button ng-click="vm.Save('clase', 'update');" class="button-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>

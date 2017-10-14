@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ObtenerDocentes.aspx.cs" Inherits="RegistroAcademico.Actions.ObtenerDocentes" %>

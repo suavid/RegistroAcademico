@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EliminarHorario.aspx.cs" Inherits="RegistroAcademico.Actions.EliminarHorario" %>

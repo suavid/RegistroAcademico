@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPeriodo.aspx.cs" Inherits="RegistroAcademico.Actions.AgregarPeriodo" %>

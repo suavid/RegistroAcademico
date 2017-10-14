@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FinalizarClase.aspx.cs" Inherits="RegistroAcademico.Actions.FinalizarClase" %>

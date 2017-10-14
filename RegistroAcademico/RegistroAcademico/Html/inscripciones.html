@@ -1,0 +1,48 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Inscripciones
+            </p>
+        </div>
+       
+    </div>
+    <div style="clear: both;"></div>
+    <form>
+        <label>Seleccionar alumno:</label>
+        <select class="u-full-width" ng-model="vm.AlumnoSeleccionado" ng-change="vm.ObtenerAsignaturasDisponibles();">
+            <option ng-repeat="alumno in vm.Alumnos" value="{{alumno.IdAlumno}}">{{alumno.PrimerNombre}} {{alumno.PrimerApellido}}</option>
+        </select>
+    </form>
+    <strong>Asignaturas disponibles</strong>
+    <hr />
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Fecha/inicio</th>
+                <th>Fecha/fin</th>
+                <th>#Sesiones</th>
+                <th>Duración</th>
+                <th>Docente</th>
+                <th>Asignatura</th>
+                <th>Local</th>
+                <th>Horario</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="clase in vm.AsignaturasDisponibles">
+                <td>{{clase.FechaInicio}}</td>
+                <td>{{clase.FechaFin}}</td>
+                <td>{{clase.NumeroSesiones}}</td>
+                <td>{{clase.DuracionDeSesion}} h</td>
+                <td>{{clase.Docente}}</td>
+                <td>{{clase.Asignatura}}</td>
+                <td>{{clase.Local}}</td>
+                <td>{{clase.HorarioClase}}</td>
+                <td style="cursor:pointer;"> <a href="javascript: void(0);" ng-click="vm.Inscribir(clase);">Inscribir</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

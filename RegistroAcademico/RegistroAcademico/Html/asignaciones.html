@@ -1,0 +1,116 @@
+﻿<script>
+    $(function () {
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $("#FechaLimite").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+    });
+</script>
+<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Evaluación de asignaturas
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button-primary" ng-if="vm.ClaseSeleccionada != 0" ng-click="vm.EditarPorcentajesDeAsignacion();"> Editar porcentajes</button>
+            <button class="button-primary" ng-if="vm.ClaseSeleccionada != 0" ng-click="vm.ShowPopupNew();"> Agregar asignación +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <form>
+        <label>Materia impartida:</label>
+        <select class="u-full-width" ng-model="vm.ClaseSeleccionada" ng-change="vm.ObtenerPeriodosPorClase();" disabled>
+            <option ng-repeat="clase in vm.Clases" value="{{clase.IdClase}}" ng-if="clase.ImpartidaPor == vm.Usuario.IdDatos">{{clase.Asignatura}}</option>
+        </select>
+    </form>
+    <strong>Asignaciones del período #{{vm.NPeriodo}}</strong>
+    <hr />
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Fecha límite</th>
+                <th>Porcentaje</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="asignacion in vm.Asignaciones">
+                <td>{{$index+1}}</td>
+                <td>{{asignacion.TituloDeAsignacion}}</td>
+                <td>{{asignacion.DescripcionDeAsignacion}}</td>
+                <td>{{asignacion.FechaLimite}}</td>
+                <td>{{asignacion.Porcentaje*100}}%</td>
+                <td><a href="#!/calificaciones?p={{asignacion.IdPeriodoDetalle}}">Calificaciones</a></td>
+                <td style="cursor:pointer;"> <a href="javascript: void(0);" ng-click="vm.DeleteItem('asignacion',asignacion);">Eliminar asignación</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Agregar asignación</h5>
+    <div style="text-align: right;">
+        <label>Tipo de evaluación</label>
+        <select class="u-full-width" ng-model="vm.Asignacion.TipoEvaluacion">
+            <option value="TAREA">Tarea</option>
+            <option value="ACTIVIDAD">Actividad</option>
+            <option value="EXAMEN">Exámen</option>
+        </select>
+        <label>Titulo de asignación</label>
+        <input class="u-full-width" type="text" ng-model="vm.Asignacion.TituloDeAsignacion">
+        <label>Descripción de asignación</label>
+        <input class="u-full-width" type="text" ng-model="vm.Asignacion.DescripcionDeAsignacion">
+        <label>Fecha límite de entrega</label>
+        <input class="u-full-width" placeholder="dd mm yy" id="FechaLimite" type="text" ng-model="vm.Asignacion.FechaLimite" readonly>
+        <br /><br />
+        <button ng-click="vm.HidePopupNew();">Cancelar</button>
+        <button ng-click="vm.AgregarNuevaAsignacion();" class="button-primary">Actualizar porcentajes</button>
+    </div>
+</div>
+
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar Porcentajes</h5>
+
+    <div style="text-align: right;">
+        <label>Asignación de origen</label>
+        <select class="u-full-width" ng-model="vm.CambioPorcentajeAsignacion.IdAsignacionOrigen">
+            <option ng-repeat="asignacion in vm.Asignaciones" value="{{asignacion.IdPeriodoDetalle}}">{{$index+1}} ({{asignacion.Porcentaje*100}})%</option>
+        </select>
+        <label>Porcentaje a transferir %</label>
+        <input class="u-full-width" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.CambioPorcentajeAsignacion.Porcentaje">
+        <label>Asignación de destino</label>
+        <select class="u-full-width" ng-model="vm.CambioPorcentajeAsignacion.IdAsignacionDestino">
+            <option ng-repeat="asignacion in vm.Asignaciones" value="{{asignacion.IdPeriodoDetalle}}">{{$index+1}} ({{asignacion.Porcentaje*100}})%</option>
+        </select>
+        <br /><br />
+        <button ng-click="vm.HidePopupNew();">Cancelar</button>
+        <button ng-click="vm.ActualizarPorcentajesAsignacion();" class="button-primary">Actualizar porcentajes</button>
+    </div>
+</div>

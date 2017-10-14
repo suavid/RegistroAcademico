@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EliminarFilial.aspx.cs" Inherits="RegistroAcademico.Actions.EliminarFilial" %>

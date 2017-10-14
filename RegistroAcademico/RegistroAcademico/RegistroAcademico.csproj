@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{079C74A6-AFF6-412E-8723-79C0A815273E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RegistroAcademico</RootNamespace>
+    <AssemblyName>RegistroAcademico</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\ActualizarPorcentajesAsignatura.aspx" />
+    <Content Include="Actions\ActualizarPorcentajesPeriodo.aspx" />
+    <Content Include="Actions\ActualizarUsuario.aspx" />
+    <Content Include="Actions\AgregarAsignacion.aspx" />
+    <Content Include="Actions\AgregarPeriodo.aspx" />
+    <Content Include="Actions\BloquearUsuario.aspx" />
+    <Content Include="Actions\Calificar.aspx" />
+    <Content Include="Actions\CloseSession.aspx" />
+    <Content Include="Actions\CrearUsuario.aspx" />
+    <Content Include="Actions\EliminarAlumno.aspx" />
+    <Content Include="Actions\EliminarAsignatura.aspx" />
+    <Content Include="Actions\EliminarClase.aspx" />
+    <Content Include="Actions\EliminarDocente.aspx" />
+    <Content Include="Actions\EliminarFilial.aspx" />
+    <Content Include="Actions\EliminarAsignacion.aspx" />
+    <Content Include="Actions\EliminarHorario.aspx" />
+    <Content Include="Actions\EliminarPeriodo.aspx" />
+    <Content Include="Actions\FinalizarClase.aspx" />
+    <Content Include="Actions\GuardarAlumno.aspx" />
+    <Content Include="Actions\GuardarAsignatura.aspx" />
+    <Content Include="Actions\GuardarClase.aspx" />
+    <Content Include="Actions\GuardarDocente.aspx" />
+    <Content Include="Actions\GuardarFilial.aspx" />
+    <Content Include="Actions\GuardarHorario.aspx" />
+    <Content Include="Actions\Inscribir.aspx" />
+    <Content Include="Actions\LoginUser.aspx" />
+    <Content Include="Actions\ObtenerAlumnos.aspx" />
+    <Content Include="Actions\ObtenerAlumnosPorAsignacion.aspx" />
+    <Content Include="Actions\ObtenerAsignaciones.aspx" />
+    <Content Include="Actions\ObtenerAsignaturas.aspx" />
+    <Content Include="Actions\ObtenerAsignaturasDisponibles.aspx" />
+    <Content Include="Actions\ObtenerClases.aspx" />
+    <Content Include="Actions\ObtenerDocentes.aspx" />
+    <Content Include="Actions\ObtenerFiliales.aspx" />
+    <Content Include="Actions\ObtenerHorarios.aspx" />
+    <Content Include="Actions\ObtenerPeriodosPorClase.aspx" />
+    <Content Include="Actions\ObtenerReporteDeNotas.aspx" />
+    <Content Include="Actions\ObtenerResultadoAsignaturas.aspx" />
+    <Content Include="Actions\ObtenerUsuarios.aspx" />
+    <Content Include="Actions\SessionData.aspx" />
+    <Content Include="Actions\ValidateSession.aspx" />
+    <Content Include="Content\Js\reset.js" />
+    <Content Include="Content\ui\AUTHORS.txt" />
+    <Content Include="Content\ui\external\jquery\jquery.js" />
+    <Content Include="Content\ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\ui\index.html" />
+    <Content Include="Content\ui\jquery-ui.css" />
+    <Content Include="Content\ui\jquery-ui.js" />
+    <Content Include="Content\ui\jquery-ui.min.css" />
+    <Content Include="Content\ui\jquery-ui.min.js" />
+    <Content Include="Content\ui\jquery-ui.structure.css" />
+    <Content Include="Content\ui\jquery-ui.structure.min.css" />
+    <Content Include="Content\ui\jquery-ui.theme.css" />
+    <Content Include="Content\ui\jquery-ui.theme.min.css" />
+    <Content Include="Content\ui\LICENSE.txt" />
+    <Content Include="Html\alumnos.html" />
+    <Content Include="Content\Css\main.css" />
+    <Content Include="Content\Css\normalize.css" />
+    <Content Include="Content\Css\skeleton.css" />
+    <Content Include="Content\Js\login.js" />
+    <Content Include="Content\Js\main.js" />
+    <Content Include="Content\Js\sistema.js" />
+    <Content Include="Html\asignaciones.html" />
+    <Content Include="Html\calificaciones.html" />
+    <Content Include="Html\clases.html" />
+    <Content Include="Html\cuenta.html" />
+    <Content Include="Html\docentes.html" />
+    <Content Include="Html\evaluacion.html" />
+    <Content Include="Html\filiales.html" />
+    <Content Include="Html\horarios.html" />
+    <Content Include="Html\inscripciones.html" />
+    <Content Include="Html\misasignaturas2.html" />
+    <Content Include="Html\misasignaturas.html" />
+    <Content Include="Html\reportenotas2.html" />
+    <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="Html\materias.html" />
+    <Content Include="Html\notas.html" />
+    <Content Include="Html\reportenotas.html" />
+    <Content Include="Html\start.html" />
+    <Content Include="Html\usuarios.html" />
+    <Content Include="Reset.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActualizarPorcentajesAsignatura.aspx.cs">
+      <DependentUpon>ActualizarPorcentajesAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ActualizarPorcentajesAsignatura.aspx.designer.cs">
+      <DependentUpon>ActualizarPorcentajesAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ActualizarPorcentajesPeriodo.aspx.cs">
+      <DependentUpon>ActualizarPorcentajesPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ActualizarPorcentajesPeriodo.aspx.designer.cs">
+      <DependentUpon>ActualizarPorcentajesPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ActualizarUsuario.aspx.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ActualizarUsuario.aspx.designer.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\AgregarAsignacion.aspx.cs">
+      <DependentUpon>AgregarAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\AgregarAsignacion.aspx.designer.cs">
+      <DependentUpon>AgregarAsignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\AgregarPeriodo.aspx.cs">
+      <DependentUpon>AgregarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\AgregarPeriodo.aspx.designer.cs">
+      <DependentUpon>AgregarPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\BloquearUsuario.aspx.cs">
+      <DependentUpon>BloquearUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\BloquearUsuario.aspx.designer.cs">
+      <DependentUpon>BloquearUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\Calificar.aspx.cs">
+      <DependentUpon>Calificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\Calificar.aspx.designer.cs">
+      <DependentUpon>Calificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\CloseSession.aspx.cs">
+      <DependentUpon>CloseSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\CloseSession.aspx.designer.cs">
+      <DependentUpon>CloseSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\CrearUsuario.aspx.cs">
+      <DependentUpon>CrearUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\CrearUsuario.aspx.designer.cs">
+      <DependentUpon>CrearUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarAlumno.aspx.cs">
+      <DependentUpon>EliminarAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarAlumno.aspx.designer.cs">
+      <DependentUpon>EliminarAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarAsignatura.aspx.cs">
+      <DependentUpon>EliminarAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarAsignatura.aspx.designer.cs">
+      <DependentUpon>EliminarAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarClase.aspx.cs">
+      <DependentUpon>EliminarClase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarClase.aspx.designer.cs">
+      <DependentUpon>EliminarClase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarDocente.aspx.cs">
+      <DependentUpon>EliminarDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarDocente.aspx.designer.cs">
+      <DependentUpon>EliminarDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarFilial.aspx.cs">
+      <DependentUpon>EliminarFilial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarFilial.aspx.designer.cs">
+      <DependentUpon>EliminarFilial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarAsignacion.aspx.cs">
+      <DependentUpon>EliminarAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarAsignacion.aspx.designer.cs">
+      <DependentUpon>EliminarAsignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarHorario.aspx.cs">
+      <DependentUpon>EliminarHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarHorario.aspx.designer.cs">
+      <DependentUpon>EliminarHorario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\EliminarPeriodo.aspx.cs">
+      <DependentUpon>EliminarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\EliminarPeriodo.aspx.designer.cs">
+      <DependentUpon>EliminarPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\FinalizarClase.aspx.cs">
+      <DependentUpon>FinalizarClase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\FinalizarClase.aspx.designer.cs">
+      <DependentUpon>FinalizarClase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarAlumno.aspx.cs">
+      <DependentUpon>GuardarAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarAlumno.aspx.designer.cs">
+      <DependentUpon>GuardarAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarAsignatura.aspx.cs">
+      <DependentUpon>GuardarAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarAsignatura.aspx.designer.cs">
+      <DependentUpon>GuardarAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarClase.aspx.cs">
+      <DependentUpon>GuardarClase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarClase.aspx.designer.cs">
+      <DependentUpon>GuardarClase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarDocente.aspx.cs">
+      <DependentUpon>GuardarDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarDocente.aspx.designer.cs">
+      <DependentUpon>GuardarDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarFilial.aspx.cs">
+      <DependentUpon>GuardarFilial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarFilial.aspx.designer.cs">
+      <DependentUpon>GuardarFilial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\GuardarHorario.aspx.cs">
+      <DependentUpon>GuardarHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\GuardarHorario.aspx.designer.cs">
+      <DependentUpon>GuardarHorario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\Inscribir.aspx.cs">
+      <DependentUpon>Inscribir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\Inscribir.aspx.designer.cs">
+      <DependentUpon>Inscribir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\LoginUser.aspx.cs">
+      <DependentUpon>LoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\LoginUser.aspx.designer.cs">
+      <DependentUpon>LoginUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerAlumnos.aspx.cs">
+      <DependentUpon>ObtenerAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerAlumnos.aspx.designer.cs">
+      <DependentUpon>ObtenerAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerAlumnosPorAsignacion.aspx.cs">
+      <DependentUpon>ObtenerAlumnosPorAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerAlumnosPorAsignacion.aspx.designer.cs">
+      <DependentUpon>ObtenerAlumnosPorAsignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaciones.aspx.cs">
+      <DependentUpon>ObtenerAsignaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaciones.aspx.designer.cs">
+      <DependentUpon>ObtenerAsignaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaturas.aspx.cs">
+      <DependentUpon>ObtenerAsignaturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaturas.aspx.designer.cs">
+      <DependentUpon>ObtenerAsignaturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaturasDisponibles.aspx.cs">
+      <DependentUpon>ObtenerAsignaturasDisponibles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerAsignaturasDisponibles.aspx.designer.cs">
+      <DependentUpon>ObtenerAsignaturasDisponibles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerClases.aspx.cs">
+      <DependentUpon>ObtenerClases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerClases.aspx.designer.cs">
+      <DependentUpon>ObtenerClases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerDocentes.aspx.cs">
+      <DependentUpon>ObtenerDocentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerDocentes.aspx.designer.cs">
+      <DependentUpon>ObtenerDocentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerFiliales.aspx.cs">
+      <DependentUpon>ObtenerFiliales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerFiliales.aspx.designer.cs">
+      <DependentUpon>ObtenerFiliales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerHorarios.aspx.cs">
+      <DependentUpon>ObtenerHorarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerHorarios.aspx.designer.cs">
+      <DependentUpon>ObtenerHorarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerPeriodosPorClase.aspx.cs">
+      <DependentUpon>ObtenerPeriodosPorClase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerPeriodosPorClase.aspx.designer.cs">
+      <DependentUpon>ObtenerPeriodosPorClase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerReporteDeNotas.aspx.cs">
+      <DependentUpon>ObtenerReporteDeNotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerReporteDeNotas.aspx.designer.cs">
+      <DependentUpon>ObtenerReporteDeNotas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerResultadoAsignaturas.aspx.cs">
+      <DependentUpon>ObtenerResultadoAsignaturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerResultadoAsignaturas.aspx.designer.cs">
+      <DependentUpon>ObtenerResultadoAsignaturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ObtenerUsuarios.aspx.cs">
+      <DependentUpon>ObtenerUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ObtenerUsuarios.aspx.designer.cs">
+      <DependentUpon>ObtenerUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\SessionData.aspx.cs">
+      <DependentUpon>SessionData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\SessionData.aspx.designer.cs">
+      <DependentUpon>SessionData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ValidateSession.aspx.cs">
+      <DependentUpon>ValidateSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions\ValidateSession.aspx.designer.cs">
+      <DependentUpon>ValidateSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroAcademicoDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroAcademicoDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Reset.aspx.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reset.aspx.designer.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ui\package.json" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\deployment.pubxml" />
+    <Content Include="RegistroAcademicoDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>RegistroAcademicoDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RegistroAcademicoDB.dbml.layout">
+      <DependentUpon>RegistroAcademicoDB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51890</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51890/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

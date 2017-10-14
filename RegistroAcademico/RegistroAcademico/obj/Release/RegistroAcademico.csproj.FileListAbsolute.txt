@@ -1,0 +1,6 @@
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll.config
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.pdb
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.csprojResolveAssemblyReference.cache
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.dll
+C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.pdb

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ObtenerHorarios.aspx.cs" Inherits="RegistroAcademico.Actions.ObtenerHorarios" %>

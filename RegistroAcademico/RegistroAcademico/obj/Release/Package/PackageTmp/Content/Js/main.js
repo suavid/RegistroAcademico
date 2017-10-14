@@ -1,0 +1,1 @@
+﻿var RegistroAcademicoApp = angular.module('RegistroAcademico', []);

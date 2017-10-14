@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ActualizarPorcentajesAsignatura.aspx.cs" Inherits="RegistroAcademico.Actions.ActualizarPorcentajesAsignatura" %>
