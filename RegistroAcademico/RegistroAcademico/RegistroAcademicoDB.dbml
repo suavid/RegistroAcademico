@@ -1,33 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RegistroAcademico" Class="RegistroAcademicoDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-AN6UI64;Initial Catalog=RegistroAcademico;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RegistroAcademicoConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.ActualizarFilial" Method="ActualizarFilial">
-    <Parameter Name="IdFilial" Parameter="idFilial" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="RazonSocial" Parameter="razonSocial" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
-    <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.RegistrarFilial" Method="RegistrarFilial">
-    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="RazonSocial" Parameter="razonSocial" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
-    <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerFiliales" Method="ObtenerFiliales">
-    <ElementType Name="ObtenerFilialesResult">
-      <Column Name="IdFilial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroTelefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.EliminarFilial" Method="EliminarFilial">
-    <Parameter Name="IdFilial" Parameter="idFilial" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RegistroAcademicoDB" Class="RegistroAcademicoDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-9BHLKBA;Initial Catalog=RegistroAcademicoDB;Persist Security Info=True;User ID=RegAcaUser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RegistroAcademicoConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.ActualizarAlumno" Method="ActualizarAlumno">
     <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
     <Parameter Name="PrimerNombre" Parameter="primerNombre" Type="System.String" DbType="NVarChar(30)" />
@@ -42,7 +14,34 @@
     <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.RegistrarAlumno" Method="RegistrarAlumno">
+  <Function Name="dbo.ActualizarAsignacion" Method="ActualizarAsignacion">
+    <Parameter Name="IdPeriodoDetalleOrigen" Parameter="idPeriodoDetalleOrigen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPeriodoDetalleDestino" Parameter="idPeriodoDetalleDestino" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Porcentaje" Parameter="porcentaje" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarAsignatura" Method="ActualizarAsignatura">
+    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="NVarChar(350)" />
+    <Parameter Name="NotaMinimaDeAprobacion" Parameter="notaMinimaDeAprobacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarClase" Method="ActualizarClase">
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumeroSesiones" Parameter="numeroSesiones" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DuracionDeSesion" Parameter="duracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Parameter Name="ImpartidaPor" Parameter="impartidaPor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AsignaturaImpartida" Parameter="asignaturaImpartida" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Local" Parameter="local" Type="System.String" DbType="NVarChar(350)" />
+    <Parameter Name="Horario" Parameter="horario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Confirmada" Parameter="confirmada" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarDocente" Method="ActualizarDocente">
+    <Parameter Name="IdDocente" Parameter="idDocente" Type="System.Int32" DbType="Int" />
     <Parameter Name="PrimerNombre" Parameter="primerNombre" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="SegundoNombre" Parameter="segundoNombre" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="PrimerApellido" Parameter="primerApellido" Type="System.String" DbType="NVarChar(30)" />
@@ -51,35 +50,90 @@
     <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="NVarChar(130)" />
     <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="NumeroTelefonoSecundario" Parameter="numeroTelefonoSecundario" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Filial" Parameter="filial" Type="System.Int32" DbType="Int" />
     <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarFilial" Method="ActualizarFilial">
+    <Parameter Name="IdFilial" Parameter="idFilial" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="RazonSocial" Parameter="razonSocial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarPeriodo" Method="ActualizarPeriodo">
+    <Parameter Name="IdPeriodoOrigen" Parameter="idPeriodoOrigen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPeriodoDestino" Parameter="idPeriodoDestino" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Porcentaje" Parameter="porcentaje" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActualizarUsuario" Method="ActualizarUsuario">
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AgregarAsignacion" Method="AgregarAsignacion">
+    <Parameter Name="IdPeriodo" Parameter="idPeriodo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoEvaluacion" Parameter="tipoEvaluacion" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="TituloDeAsignacion" Parameter="tituloDeAsignacion" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DescripcionDeAsignacion" Parameter="descripcionDeAsignacion" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="FechaLimite" Parameter="fechaLimite" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AgregarPeriodo" Method="AgregarPeriodo">
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BloquearUsuario" Method="BloquearUsuario">
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Calificar" Method="Calificar">
+    <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Asignacion" Parameter="asignacion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nota" Parameter="nota" Type="System.Decimal" DbType="Decimal(10,2)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.EliminarAlumno" Method="EliminarAlumno">
     <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.ValidarUsuario" Method="ValidarUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
-    <ElementType Name="ValidarUsuarioResult">
-      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
+  <Function Name="dbo.EliminarAsignacion" Method="EliminarAsignacion">
+    <Parameter Name="IdPeriodoDetalle" Parameter="idPeriodoDetalle" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.ObtenerUsuarios" Method="ObtenerUsuarios">
-    <ElementType Name="ObtenerUsuariosResult">
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IdDatos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UltimaFechaInicioSesion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Bloqueado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EsDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EsAdministrador" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(123) NOT NULL" CanBeNull="false" />
-    </ElementType>
+  <Function Name="dbo.EliminarAsignatura" Method="EliminarAsignatura">
+    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.BloquearUsuario" Method="BloquearUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+  <Function Name="dbo.EliminarClase" Method="EliminarClase">
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarDocente" Method="EliminarDocente">
+    <Parameter Name="IdDocente" Parameter="idDocente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarFilial" Method="EliminarFilial">
+    <Parameter Name="IdFilial" Parameter="idFilial" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarHorario" Method="EliminarHorario">
+    <Parameter Name="IdHorario" Parameter="idHorario" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarPeriodo" Method="EliminarPeriodo">
+    <Parameter Name="IdPeriodo" Parameter="idPeriodo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FinalizarClase" Method="FinalizarClase">
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Inscribir" Method="Inscribir">
+    <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ObtenerAlumnos" Method="ObtenerAlumnos">
@@ -99,224 +153,6 @@
       <Column Name="NombreFilial" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TieneUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.RegistrarUsuario" Method="RegistrarUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="IdDatos" Parameter="idDatos" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
-    <Parameter Name="EsDocente" Parameter="esDocente" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerUsuario" Method="ObtenerUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="ObtenerUsuarioResult">
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IdDatos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UltimaFechaInicioSesion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Bloqueado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EsDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EsAdministrador" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ResetPwd" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.ActualizarUsuario" Method="ActualizarUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EliminarAsignatura" Method="EliminarAsignatura">
-    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.RegistrarAsignatura" Method="RegistrarAsignatura">
-    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="NVarChar(350)" />
-    <Parameter Name="NotaMinimaDeAprobacion" Parameter="notaMinimaDeAprobacion" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerAsignaturas" Method="ObtenerAsignaturas">
-    <ElementType Name="ObtenerAsignaturasResult">
-      <Column Name="IdAsignatura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(350) NOT NULL" CanBeNull="false" />
-      <Column Name="NotaMinimaDeAprobacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.ActualizarAsignatura" Method="ActualizarAsignatura">
-    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="NVarChar(350)" />
-    <Parameter Name="NotaMinimaDeAprobacion" Parameter="notaMinimaDeAprobacion" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ActualizarDocente" Method="ActualizarDocente">
-    <Parameter Name="IdDocente" Parameter="idDocente" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PrimerNombre" Parameter="primerNombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="SegundoNombre" Parameter="segundoNombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="PrimerApellido" Parameter="primerApellido" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="SegundoApellido" Parameter="segundoApellido" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="FechaNacimiento" Parameter="fechaNacimiento" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="NVarChar(130)" />
-    <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="NumeroTelefonoSecundario" Parameter="numeroTelefonoSecundario" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EliminarDocente" Method="EliminarDocente">
-    <Parameter Name="IdDocente" Parameter="idDocente" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.RegistrarDocente" Method="RegistrarDocente">
-    <Parameter Name="PrimerNombre" Parameter="primerNombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="SegundoNombre" Parameter="segundoNombre" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="PrimerApellido" Parameter="primerApellido" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="SegundoApellido" Parameter="segundoApellido" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="FechaNacimiento" Parameter="fechaNacimiento" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="NVarChar(130)" />
-    <Parameter Name="NumeroTelefono" Parameter="numeroTelefono" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="NumeroTelefonoSecundario" Parameter="numeroTelefonoSecundario" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(150)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerDocentes" Method="ObtenerDocentes">
-    <ElementType Name="ObtenerDocentesResult">
-      <Column Name="IdDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PrimerNombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="SegundoNombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="PrimerApellido" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="SegundoApellido" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CorreoElectronico" Type="System.String" DbType="NVarChar(130)" CanBeNull="true" />
-      <Column Name="NumeroTelefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="NumeroTelefonoSecundario" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="DeBaja" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TieneUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.RegistrarHorario" Method="RegistrarHorario">
-    <Parameter Name="IdHorario" Parameter="idHorario" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Dia" Parameter="dia" Type="System.String" DbType="Char(3)" />
-    <Parameter Name="HoraInicio" Parameter="horaInicio" Type="System.String" DbType="VarChar(5)" />
-    <Parameter Name="Desc" Parameter="desc" Type="System.String" DbType="VarChar(100)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerHorarios" Method="ObtenerHorarios">
-    <ElementType Name="ObtenerHorariosResult">
-      <Column Name="IdHorario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Detalle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.RegistrarClase" Method="RegistrarClase">
-    <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="NumeroSesiones" Parameter="numeroSesiones" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DuracionDeSesion" Parameter="duracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2)" />
-    <Parameter Name="ImpartidaPor" Parameter="impartidaPor" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AsignaturaImpartida" Parameter="asignaturaImpartida" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Local" Parameter="local" Type="System.String" DbType="NVarChar(350)" />
-    <Parameter Name="Horario" Parameter="horario" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Confirmada" Parameter="confirmada" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EliminarClase" Method="EliminarClase">
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ActualizarClase" Method="ActualizarClase">
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="NumeroSesiones" Parameter="numeroSesiones" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DuracionDeSesion" Parameter="duracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2)" />
-    <Parameter Name="ImpartidaPor" Parameter="impartidaPor" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AsignaturaImpartida" Parameter="asignaturaImpartida" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Local" Parameter="local" Type="System.String" DbType="NVarChar(350)" />
-    <Parameter Name="Horario" Parameter="horario" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Confirmada" Parameter="confirmada" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerClases" Method="ObtenerClases">
-    <ElementType Name="ObtenerClasesResult">
-      <Column Name="IdClase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="FechaFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroSesiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DuracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="ImpartidaPor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AsignaturaImpartida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Local" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
-      <Column Name="Horario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Confirmada" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Docente" Type="System.String" DbType="NVarChar(61) NOT NULL" CanBeNull="false" />
-      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HorarioClase" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.ObtenerAsignaturasDisponibles" Method="ObtenerAsignaturasDisponibles">
-    <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
-    <ElementType Name="ObtenerAsignaturasDisponiblesResult">
-      <Column Name="IdClase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="FechaFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroSesiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DuracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="ImpartidaPor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AsignaturaImpartida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Local" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
-      <Column Name="Horario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Confirmada" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Docente" Type="System.String" DbType="NVarChar(61) NOT NULL" CanBeNull="false" />
-      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HorarioClase" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.Inscribir" Method="Inscribir">
-    <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IdAsignatura" Parameter="idAsignatura" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerPeriodosPorClase" Method="ObtenerPeriodosPorClase">
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <ElementType Name="ObtenerPeriodosPorClaseResult">
-      <Column Name="IdPeriodo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Porcentaje" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.AgregarPeriodo" Method="AgregarPeriodo">
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ActualizarPeriodo" Method="ActualizarPeriodo">
-    <Parameter Name="IdPeriodoOrigen" Parameter="idPeriodoOrigen" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IdPeriodoDestino" Parameter="idPeriodoDestino" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Porcentaje" Parameter="porcentaje" Type="System.Decimal" DbType="Decimal(10,2)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EliminarPeriodo" Method="EliminarPeriodo">
-    <Parameter Name="IdPeriodo" Parameter="idPeriodo" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.AgregarAsignacion" Method="AgregarAsignacion">
-    <Parameter Name="IdPeriodo" Parameter="idPeriodo" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TipoEvaluacion" Parameter="tipoEvaluacion" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="TituloDeAsignacion" Parameter="tituloDeAsignacion" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DescripcionDeAsignacion" Parameter="descripcionDeAsignacion" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="FechaLimite" Parameter="fechaLimite" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ActualizarAsignacion" Method="ActualizarAsignacion">
-    <Parameter Name="IdPeriodoDetalleOrigen" Parameter="idPeriodoDetalleOrigen" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IdPeriodoDetalleDestino" Parameter="idPeriodoDetalleDestino" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Porcentaje" Parameter="porcentaje" Type="System.Decimal" DbType="Decimal(10,2)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EliminarAsignacion" Method="EliminarAsignacion">
-    <Parameter Name="IdPeriodoDetalle" Parameter="idPeriodoDetalle" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ObtenerAlumnosPorAsignacion" Method="ObtenerAlumnosPorAsignacion">
     <Parameter Name="IdPeriodoDetalle" Parameter="idPeriodoDetalle" Type="System.Int32" DbType="Int" />
@@ -342,11 +178,87 @@
       <Column Name="FechaLimite" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Calificar" Method="Calificar">
+  <Function Name="dbo.ObtenerAsignaturas" Method="ObtenerAsignaturas">
+    <ElementType Name="ObtenerAsignaturasResult">
+      <Column Name="IdAsignatura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="NotaMinimaDeAprobacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerAsignaturasDisponibles" Method="ObtenerAsignaturasDisponibles">
     <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Asignacion" Parameter="asignacion" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Nota" Parameter="nota" Type="System.Decimal" DbType="Decimal(10,2)" />
-    <Return Type="System.Int32" />
+    <ElementType Name="ObtenerAsignaturasDisponiblesResult">
+      <Column Name="IdClase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroSesiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DuracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ImpartidaPor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AsignaturaImpartida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Local" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="Horario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Confirmada" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Docente" Type="System.String" DbType="NVarChar(61) NOT NULL" CanBeNull="false" />
+      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HorarioClase" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerClases" Method="ObtenerClases">
+    <ElementType Name="ObtenerClasesResult">
+      <Column Name="IdClase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroSesiones" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DuracionDeSesion" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ImpartidaPor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AsignaturaImpartida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Local" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="Horario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Confirmada" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Docente" Type="System.String" DbType="NVarChar(61) NOT NULL" CanBeNull="false" />
+      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HorarioClase" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerDocentes" Method="ObtenerDocentes">
+    <ElementType Name="ObtenerDocentesResult">
+      <Column Name="IdDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrimerNombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SegundoNombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PrimerApellido" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SegundoApellido" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="NVarChar(130)" CanBeNull="true" />
+      <Column Name="NumeroTelefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NumeroTelefonoSecundario" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="DeBaja" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TieneUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerFiliales" Method="ObtenerFiliales">
+    <ElementType Name="ObtenerFilialesResult">
+      <Column Name="IdFilial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroTelefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerHorarios" Method="ObtenerHorarios">
+    <ElementType Name="ObtenerHorariosResult">
+      <Column Name="IdHorario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerPeriodosPorClase" Method="ObtenerPeriodosPorClase">
+    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ObtenerPeriodosPorClaseResult">
+      <Column Name="IdPeriodo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Porcentaje" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
   <Function Name="dbo.ObtenerReporteDeNotas" Method="ObtenerReporteDeNotas">
     <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
@@ -360,38 +272,6 @@
       <Column Name="IdPeriodoDetalle" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TituloDeAsignacion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Nota" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.EliminarHorario" Method="EliminarHorario">
-    <Parameter Name="IdHorario" Parameter="idHorario" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerAsignacionesPorPeriodo" Method="ObtenerAsignacionesPorPeriodo1">
-    <Parameter Name="IdPeriodo" Parameter="idPeriodo" Type="System.Int32" DbType="Int" />
-    <ElementType Name="ObtenerAsignacionesPorPeriodoResult1">
-      <Column Name="IdPeriodoDetalle" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdPeriodo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TipoEvaluacion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Porcentaje" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="TituloDeAsignacion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DescripcionDeAsignacion" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="FechaLimite" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.FinalizarClase" Method="FinalizarClase">
-    <Parameter Name="IdClase" Parameter="idClase" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.ObtenerResultadoAsignaturas" Method="ObtenerResultadoAsignaturas">
-    <Parameter Name="IdAlumno" Parameter="idAlumno" Type="System.Int32" DbType="Int" />
-    <ElementType Name="ObtenerResultadoAsignaturasResult">
-      <Column Name="PrimerNombre" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="SegundoNombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="PrimerApellido" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="SegundoApellido" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Estado" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Matricula" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
