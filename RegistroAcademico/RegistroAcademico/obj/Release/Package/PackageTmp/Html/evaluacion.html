@@ -1,0 +1,67 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Evaluación de asignaturas
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button" style="background:#ff5959;color:white;" ng-if="vm.ClaseSeleccionada != 0" ng-click="vm.CerrarClase();"> Finalizar clase</button>
+            <button class="button-primary" ng-if="vm.ClaseSeleccionada != 0" ng-click="vm.EditarPorcentajesDePeriodo();"> Editar porcentajes</button>
+            <button class="button-primary" ng-if="vm.ClaseSeleccionada != 0" ng-click="vm.AgregarPeriodo();"> Agregar nuevo período +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <form>
+        <label>Seleccionar clase:</label>
+        <select class="u-full-width" ng-model="vm.ClaseSeleccionada" ng-change="vm.ObtenerPeriodosPorClase();">
+            <option ng-repeat="clase in vm.Clases" value="{{clase.IdClase}}" ng-if="clase.ImpartidaPor == vm.Usuario.IdDatos">{{clase.Asignatura}}</option>
+        </select>
+    </form>
+    <div ng-if="vm.ClaseSeleccionada != 0">
+        <strong>Períodos</strong>
+        <hr />
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th># De período</th>
+                    <th>Porcentaje de evaluación</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="periodo in vm.Periodos">
+                    <td>{{$index+1}}</td>
+                    <td>{{periodo.Porcentaje*100}}%</td>
+                    <td><a href="#!/asignaciones?p={{periodo.IdPeriodo}}&n={{$index+1}}">[Click para ver] Asignaciones del período</a></td>
+                    <td style="cursor:pointer;"> <a href="javascript: void(0);" ng-click="vm.DeleteItem('periodo',periodo);">Eliminar periodo</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar Porcentajes</h5>
+
+    <div style="text-align: right;">
+        <label>Período de origen</label>
+        <select class="u-full-width" ng-model="vm.CambioPorcentajePeriodo.IdPeriodoOrigen">
+            <option ng-repeat="periodo in vm.Periodos" value="{{periodo.IdPeriodo}}">{{$index+1}} ({{periodo.Porcentaje*100}})%</option>
+        </select>
+        <label>Porcentaje a transferir %</label>
+        <input class="u-full-width" type="text" onkeyup="VerificarEntero(this);" ng-model="vm.CambioPorcentajePeriodo.Porcentaje">
+        <label>Período de destino</label>
+        <select class="u-full-width" ng-model="vm.CambioPorcentajePeriodo.IdPeriodoDestino">
+            <option ng-repeat="periodo in vm.Periodos" value="{{periodo.IdPeriodo}}">{{$index+1}} ({{periodo.Porcentaje*100}})%</option>
+        </select>
+        <br /><br />
+        <button ng-click="vm.HidePopupNew();">Cancelar</button>
+        <button ng-click="vm.ActualizarPorcentajesPeriodo();" class="button-primary">Actualizar porcentajes</button>
+    </div>
+</div>
+   

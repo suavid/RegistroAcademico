@@ -1,0 +1,80 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Filiales
+            </p>
+        </div>
+        <div style="float: right;">
+            <button class="button-primary" ng-click="vm.ShowPopupNew();"> Nuevo +</button>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Razón social</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="filial in vm.Filiales">
+                <td>{{filial.Nombre}}</td>
+                <td>{{filial.RazonSocial}}</td>
+                <td>{{filial.Direccion}}</td>
+                <td>{{filial.NumeroTelefono}}</td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.ShowPopupEdit('filial',filial);">create</i></td>
+                <td style="cursor:pointer;"><i class="material-icons" ng-click="vm.DeleteItem('filial',filial);">remove</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="blackscreen" ng-show="vm.ActivePopup == 1"></div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupNew == 1">
+    <h5>Nuevo registro</h5>
+    <div>
+        <form>
+            <label for="Nombre">Nombre *</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la filial" id="Nombre" type="text" ng-model="vm.Filial.Nombre">
+            <label for="Razon">Razón social *</label>
+            <input class="u-full-width" placeholder="Razón social" id="Razon" type="text" ng-model="vm.Filial.RazonSocial">
+            <label for="Direccion">Dirección *</label>
+            <input class="u-full-width" placeholder="Ej: San Salvador, Soyapango" id="Direccion" type="text" ng-model="vm.Filial.Direccion">
+            <label for="Telefono">Teléfono</label>
+            <input class="u-full-width" placeholder="Ej: 2255-1100" id="Telefono" type="text" ng-model="vm.Filial.NumeroTelefono">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupNew();">Cancelar</button>
+                <button ng-click="vm.Save('filial', 'new');" class="button-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" ng-show="vm.ActivePopup == 1 && vm.PopupEdit == 1">
+    <h5>Editar registro</h5>
+    <div>
+        <form>
+            <label for="Nombre">Nombre *</label>
+            <input class="u-full-width" placeholder="Escriba el nombre de la filial" id="NombreE" type="text" ng-model="vm.Filial.Nombre">
+            <label for="Razon">Razón social *</label>
+            <input class="u-full-width" placeholder="Razón social" id="RazonE" type="text" ng-model="vm.Filial.RazonSocial">
+            <label for="Direccion">Dirección *</label>
+            <input class="u-full-width" placeholder="Ej: San Salvador, Soyapango" id="DireccionE" type="text" ng-model="vm.Filial.Direccion">
+            <label for="Telefono">Teléfono</label>
+            <input class="u-full-width" placeholder="Ej: 2255-1100" id="TelefonoE" type="text" ng-model="vm.Filial.NumeroTelefono">
+            <div style="text-align: right;">
+                <br />
+                <button ng-click="vm.HidePopupEdit();">Cancelar</button>
+                <button ng-click="vm.Save('filial', 'update');" class="button-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>

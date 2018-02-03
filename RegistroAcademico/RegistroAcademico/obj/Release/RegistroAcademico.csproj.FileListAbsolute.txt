@@ -4,3 +4,12 @@ C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroA
 C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.csprojResolveAssemblyReference.cache
 C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.dll
 C:\Users\willi\documents\visual studio 2013\Projects\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.pdb
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll.config
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.dll
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\RegistroAcademico.pdb
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\Microsoft.Web.XmlTransform.dll
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\NuGet.Core.dll
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.csprojResolveAssemblyReference.cache
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.csproj.CoreCompileInputs.cache
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.dll
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Release\RegistroAcademico.pdb

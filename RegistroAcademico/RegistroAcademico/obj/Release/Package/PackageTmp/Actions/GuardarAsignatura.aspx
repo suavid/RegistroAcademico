@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GuardarAsignatura.aspx.cs" Inherits="RegistroAcademico.Actions.GuardarAsignatura" %>

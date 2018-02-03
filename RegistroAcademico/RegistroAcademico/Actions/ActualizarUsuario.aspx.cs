@@ -18,6 +18,7 @@ namespace RegistroAcademico.Actions
             string Clave = Request["Clave"];
 
             bool resultado = false;
+            string message = "";
 
             try
             {
@@ -30,10 +31,11 @@ namespace RegistroAcademico.Actions
             catch (Exception ex)
             {
                 resultado = false;
+                message = ex.Message;
             }
 
 
-            var JSON = new { success = resultado };
+            var JSON = new { success = resultado, errorMessage = message };
 
             string respuesta = serializer.Serialize(JSON);
 

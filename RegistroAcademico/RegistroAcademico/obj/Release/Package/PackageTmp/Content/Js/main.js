@@ -1,1 +1,1 @@
-﻿var RegistroAcademicoApp = angular.module('RegistroAcademico', []);
+﻿var RegistroAcademicoApp = angular.module('RegistroAcademico', ["ngRoute"]);

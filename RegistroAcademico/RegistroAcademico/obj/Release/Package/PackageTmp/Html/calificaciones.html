@@ -1,0 +1,35 @@
+﻿<div style="padding-left: 20px; padding-right: 20px;">
+    <br />
+    <div>
+        <div style="float:left;">
+            <p style="font-size: 24px;">
+                Calificaciones
+            </p>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <form>
+        <label>Asignación:</label>
+        <select class="u-full-width" disabled>
+            <option ng-repeat="asignacion in vm.Asignaciones" value="{{asignacion.IdPeriodoDetalle}}" ng-if="asignacion.IdPeriodoDetalle == vm.IdAsignacionSeleccionada">{{asignacion.TituloDeAsignacion}}</option>
+        </select>
+    </form>
+    <strong>Detalle de notas: </strong>
+    <hr />
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Nota</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="calificacion in vm.Calificaciones">
+                <td>{{calificacion.PrimerNombre}} {{calificacion.SegundoNombre}} {{Calificacion.PrimerApellido}} {{calificacion.SegundoApellido}}</td>
+                <td><input type="text" id="nota_{{calificacion.IdAlumno}}" onkeyup="VerificarEntero(this);" value="{{calificacion.Nota}}" /></td>
+                <td><button class="button button-primary" ng-click="vm.Calificar(calificacion.IdAlumno, calificacion.Asignacion);">Calificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

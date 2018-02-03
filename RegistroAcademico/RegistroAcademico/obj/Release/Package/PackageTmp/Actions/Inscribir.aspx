@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscribir.aspx.cs" Inherits="RegistroAcademico.Actions.Inscribir" %>

@@ -71,11 +71,11 @@ function SistemaController($http, $scope) {
 
     // Definicion de campos requeridos
     var FilialMV = ['Nombre', 'RazonSocial', 'Direccion'];
-    var AlumnoMV = ['PrimerNombre', 'PrimerApellido', 'FechaNacimiento', 'CorreoElectronico', 'NumeroTelefono', 'Direccion', 'IdFilial'];
+    var AlumnoMV = ['PrimerNombre', 'PrimerApellido', 'FechaNacimiento', 'Direccion', 'IdFilial'];
     var DocenteMV = ['PrimerNombre', 'PrimerApellido', 'FechaNacimiento', 'CorreoElectronico', 'NumeroTelefono', 'Direccion'];
     var UsuarioMV = ['NombreUsuario'];
     var HorarioMV = ['Desc'];
-    var AsignaturaMV = ['Nombre', 'Descripcion', 'NotaMinimaDeAprobacion'];
+    var AsignaturaMV = ['Nombre', 'NotaMinimaDeAprobacion'];
     var ClaseMV = ['FechaInicio','FechaFin','NumeroSesiones','DuracionDeSesion','ImpartidaPor','AsignaturaImpartida','Horario'];
 
     // Banderas de control
@@ -1284,7 +1284,7 @@ function SistemaController($http, $scope) {
                         alert('Clave actualizada con éxito');
                         location.href = 'index.aspx'
                     } else {
-                        alert('Ocurrió un error inesperado');
+                        alert(response.data.errorMessage);
                     }
                 });
             }

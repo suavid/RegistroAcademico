@@ -1,0 +1,19 @@
+﻿<div style="padding: 20px;">
+    <h3>Mis asignaturas</h3>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th style="padding: 5px;">Asignatura</th>
+                <th style="padding: 5px;">Estado</th>
+                <th style="padding: 5px;"># Matricula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="asignatura in vm.MisAsignaturas">
+                <td>{{asignatura.Nombre}}</td>
+                <td>{{asignatura.Estado}}</td>
+                <td>{{asignatura.Matricula}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+﻿<div style="width: 400px; margin: 50px auto;">
+    <form>
+        <h5>Actualizar contraseña</h5>
+        <label for="NuevaClave">Nueva clave</label>
+        <input class="u-full-width" id="NuevaClave" ng-model="vm.Datos.Clave" type="password" />
+        <label for="NuevaClave2">Respita su clave</label>
+        <input class="u-full-width" id="NuevaClave2" ng-model="vm.Datos.Clave2" type="password" />
+        <div style="text-align: right;">
+            <br />
+            <button ng-click="vm.Actualizar();" class="button-primary">Actualizar clave</button>
+        </div>
+    </form>
+</div>

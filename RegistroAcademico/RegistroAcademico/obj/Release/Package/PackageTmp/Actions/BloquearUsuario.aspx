@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BloquearUsuario.aspx.cs" Inherits="RegistroAcademico.Actions.BloquearUsuario" %>

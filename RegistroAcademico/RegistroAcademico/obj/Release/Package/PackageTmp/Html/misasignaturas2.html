@@ -1,0 +1,25 @@
+﻿<div style="padding: 20px;">
+    <h3>Mis asignaturas</h3>
+    <form>
+        <label>Seleccionar alumno:</label>
+        <select class="u-full-width" ng-model="vm.AlumnoSeleccionado" ng-change="vm.ObtenerResultadoAsignaturas2();">
+            <option ng-repeat="alumno in vm.Alumnos" value="{{alumno.IdAlumno}}">{{alumno.PrimerNombre}} {{alumno.PrimerApellido}}</option>
+        </select>
+    </form>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th style="padding: 5px;">Asignatura</th>
+                <th style="padding: 5px;">Estado</th>
+                <th style="padding: 5px;"># Matricula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="asignatura in vm.MisAsignaturas2">
+                <td>{{asignatura.Nombre}}</td>
+                <td>{{asignatura.Estado}}</td>
+                <td>{{asignatura.Matricula}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

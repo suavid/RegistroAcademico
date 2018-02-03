@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EliminarClase.aspx.cs" Inherits="RegistroAcademico.Actions.EliminarClase" %>

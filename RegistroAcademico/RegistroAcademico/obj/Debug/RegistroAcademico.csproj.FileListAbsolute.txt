@@ -14,3 +14,4 @@ C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\bin\NuGet.Co
 C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.csproj.CoreCompileInputs.cache
 C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.dll
 C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.pdb
+C:\wamp64\www\RegistroAcademico\RegistroAcademico\RegistroAcademico\obj\Debug\RegistroAcademico.csprojResolveAssemblyReference.cache
